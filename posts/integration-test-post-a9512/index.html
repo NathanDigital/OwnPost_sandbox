@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" data-light-theme="own-post-light-light" data-dark-theme="own-post-dark-dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="This post was created by an automated integration test." />
+    <meta name="author" content="Test Runner" />
+    <meta name="generator" content="Ignite v0.6.9" />
+    <title>Integration Test Post</title>
+    <link href="/OwnPost_sandbox/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/OwnPost_sandbox/css/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="/OwnPost_sandbox/css/ignite-core.min.css" rel="stylesheet" />
+    <link href="https://nathandigital.github.io/OwnPost_sandbox/posts/integration-test-post-a9512" rel="canonical" />
+    <link type="application/rss+xml" title="RSS Feed" href="/OwnPost_sandbox/feed.rss" rel="alternate" />
+    <script>(function() {
+    function getThemePreference() {
+        return localStorage.getItem('custom-theme') || 'auto';
+    }
+
+    function applyTheme(themeID) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const lightThemeID = document.documentElement.getAttribute('data-light-theme') || 'light';
+        const darkThemeID = document.documentElement.getAttribute('data-dark-theme') || 'dark';
+        const actualThemeID = themeID === 'auto' ? (prefersDark ? darkThemeID : lightThemeID) : themeID;
+
+        document.documentElement.setAttribute('data-bs-theme', actualThemeID);
+        document.documentElement.setAttribute('data-theme-state', themeID);
+    }
+
+    function applySyntaxTheme() {
+        const syntaxTheme = getComputedStyle(document.documentElement)
+            .getPropertyValue('--syntax-highlight-theme').trim().replace(/"/g, '');
+
+        if (!syntaxTheme) return;
+
+        document.querySelectorAll('link[data-highlight-theme]').forEach(link => {
+            link.setAttribute('disabled', 'disabled');
+        });
+
+        const themeLink = document.querySelector(`link[data-highlight-theme="${syntaxTheme}"]`);
+        if (themeLink) {
+            themeLink.removeAttribute('disabled');
+        }
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const currentTheme = getThemePreference();
+        if (currentTheme === 'auto') {
+            applyTheme('auto');
+            applySyntaxTheme();
+        }
+    });
+
+    const savedTheme = getThemePreference();
+    applyTheme(savedTheme);
+    applySyntaxTheme();
+})();
+</script>
+    <meta property="og:site_name" content="OwnPost Integration Test" />
+    <meta property="og:title" content="Integration Test Post" />
+    <meta name="twitter:title" content="Integration Test Post" />
+    <meta property="og:description" content="This post was created by an automated integration test." />
+    <meta name="twitter:description" content="This post was created by an automated integration test." />
+    <meta property="og:url" content="https://nathandigital.github.io/OwnPost_sandbox/posts/integration-test-post-a9512" />
+    <meta name="twitter:domain" content="nathandigital.github.io" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:dnt" content="on" />
+  </head>
+  <body class="container">
+    <div class="py-4 border-bottom mb-4">
+      <a href="/OwnPost_sandbox/" class="fs-1">OwnPost Integration Test</a>
+      <p class="text-body-secondary">Testing OwnPost publishing pipeline</p>
+    </div>
+    <div class="ig-main-content">
+      <div>
+        <h1>Integration Test Post</h1>
+        <p class="text-body-secondary">3 August 2026</p>
+      </div>
+      <p>This post was created by an automated integration test.</p>
+      <p><strong>Test Marker</strong>: TEST-MARKER-1785675748.641746</p>
+      <p>Created at: 2026-08-02 13:02:28 +0000</p>
+      <a href="/OwnPost_sandbox/" class="d-block mt-5">← Back to Home</a>
+    </div>
+    <div class="py-4 mt-5 border-top">
+      <p class="text-body-secondary">Built with <a href="https://ownpost.digital">OwnPost</a></p>
+    </div>
+    <script src="/OwnPost_sandbox/js/bootstrap.bundle.min.js"></script>
+    <script src="/OwnPost_sandbox/js/ignite-core.js"></script>
+  </body>
+</html>
