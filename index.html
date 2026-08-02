@@ -1,1 +1,84 @@
-<!DOCTYPE html><html lang="en" color-mode="user"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>OwnPost Integration Test</title><meta name="twitter:title" content="OwnPost Integration Test"/><meta property="og:title" content="OwnPost Integration Test"/><link rel="stylesheet" href="css/mvp.css" type="text/css"/><link rel="stylesheet" href="css/swiper-bundle.min.css" type="text/css"/><link rel="stylesheet" href="css/gallery.css" type="text/css"/></head><body><header><h1>OwnPost Integration Test</h1><p>Testing OwnPost publishing pipeline</p></header><main><h2>Recent Posts</h2><ul></ul></main><footer><p>Built with <a href="https://ownpost.digital">OwnPost</a></p></footer></body></html>
+<!doctype html>
+<html lang="en" data-light-theme="own-post-light-light" data-dark-theme="own-post-dark-dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content="Ignite v0.6.9" />
+    <title>Home</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="/css/ignite-core.min.css" rel="stylesheet" />
+    <link href="https://example.com/" rel="canonical" />
+    <link type="application/rss+xml" title="RSS Feed" href="/feed.rss" rel="alternate" />
+    <script>(function() {
+    function getThemePreference() {
+        return localStorage.getItem('custom-theme') || 'auto';
+    }
+
+    function applyTheme(themeID) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const lightThemeID = document.documentElement.getAttribute('data-light-theme') || 'light';
+        const darkThemeID = document.documentElement.getAttribute('data-dark-theme') || 'dark';
+        const actualThemeID = themeID === 'auto' ? (prefersDark ? darkThemeID : lightThemeID) : themeID;
+
+        document.documentElement.setAttribute('data-bs-theme', actualThemeID);
+        document.documentElement.setAttribute('data-theme-state', themeID);
+    }
+
+    function applySyntaxTheme() {
+        const syntaxTheme = getComputedStyle(document.documentElement)
+            .getPropertyValue('--syntax-highlight-theme').trim().replace(/"/g, '');
+
+        if (!syntaxTheme) return;
+
+        document.querySelectorAll('link[data-highlight-theme]').forEach(link => {
+            link.setAttribute('disabled', 'disabled');
+        });
+
+        const themeLink = document.querySelector(`link[data-highlight-theme="${syntaxTheme}"]`);
+        if (themeLink) {
+            themeLink.removeAttribute('disabled');
+        }
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const currentTheme = getThemePreference();
+        if (currentTheme === 'auto') {
+            applyTheme('auto');
+            applySyntaxTheme();
+        }
+    });
+
+    const savedTheme = getThemePreference();
+    applyTheme(savedTheme);
+    applySyntaxTheme();
+})();
+</script>
+    <meta property="og:site_name" content="My Blog" />
+    <meta property="og:title" content="Home" />
+    <meta name="twitter:title" content="Home" />
+    <meta property="og:url" content="https://example.com/" />
+    <meta name="twitter:domain" content="example.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:dnt" content="on" />
+  </head>
+  <body class="container">
+    <div class="py-4 border-bottom mb-4">
+      <a href="/" class="fs-1">My Blog</a>
+      <p class="text-body-secondary">A personal blog powered by OwnPost</p>
+    </div>
+    <div class="ig-main-content">
+      <h2>Recent Posts</h2>
+      <ul>
+        <li><a href="/posts/example-post-1-d6e72/">Example Post 1</a><p class="text-body-secondary"> — 3 August 2026</p></li>
+        <li><a href="/posts/example-post-3-46f17/">Example Post 3</a><p class="text-body-secondary"> — 3 August 2026</p></li>
+        <li><a href="/posts/example-post-2-9c8c5/">Example Post 2</a><p class="text-body-secondary"> — 3 August 2026</p></li>
+      </ul>
+    </div>
+    <div class="py-4 mt-5 border-top">
+      <p class="text-body-secondary">Built with <a href="https://ownpost.digital">OwnPost</a></p>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/ignite-core.js"></script>
+  </body>
+</html>
